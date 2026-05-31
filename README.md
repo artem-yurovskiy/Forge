@@ -1,44 +1,34 @@
-# Forge_CS307_Project
-A workout and diet tracking app that integrates AI to help give personalized advice and keep them on their fitness goals. CS 307 Group Project
+# Forge
+A full-stack mobile fitness app combining workout tracking, 
+diet logging, social features, and AI-powered fitness guidance.
 
+## Features
+- User authentication, onboarding, and profile management
+- Workout logging and workout history tracking
+- Diet and macro tracking features
+- Social feeds for sharing workout activity
+- Friend-based interactions, comments, reactions, and notifications
+- Persistent in-app messaging between users
+- AI-assisted fitness guidance and workout-related support
+- Database-backed storage for users, workouts, meals, posts, chats, and notifications
 
+## Built With
+React Native · TypeScript · Expo · Python · FastAPI · SQLAlchemy · OpenAI API
+
+## Run
+
+### Backend
+Requires Python 3.12 and Pipenv
+```bash
+pipenv install
+pipenv run server
 ```
-branch architecture
--> app
-  -> fast_api
-    -> api.py      # server side work (host session, process requests)
-  -> core
-    -> db.py       # database schema (Profile(PK: ID - INTEGER NOT NULL, ...))
-    -> repos.py    # database side work (write queries)
--> react_frontend
-  -> main.jsx      # client side work (colors & buttons, create requests)
-  -> api.jsx       # connects client to server (send requests)
-  ```
 
-## Email Update Notifications
-
-User Story 21 is implemented in the FastAPI backend:
-- `PATCH /accounts/{user_id}/profile` updates username/bio and sends an email notification.
-- `POST /accounts/{user_id}/change_password` updates password and sends an email notification.
-
-Email provider integration is configured with environment variables:
-- `EMAIL_NOTIFICATIONS_ENABLED` (`true`/`false`)
-- `EMAIL_PROVIDER` (`smtp` or `log`)
-- `SMTP_HOST`
-- `SMTP_PORT`
-- `SMTP_FROM_EMAIL`
-- `SMTP_USERNAME`
-- `SMTP_PASSWORD`
-- `SMTP_USE_TLS` (`true`/`false`)
-
-Quick dev setup (no real email sending, logs notification events in backend console):
-- `EMAIL_NOTIFICATIONS_ENABLED=true`
-- `EMAIL_PROVIDER=log`
-
-SMTP setup (sends real emails):
-- `EMAIL_NOTIFICATIONS_ENABLED=true`
-- `EMAIL_PROVIDER=smtp`
-- plus all `SMTP_*` variables above
-
-Trigger-focused tests are in:
-- `app/fast_api/test_update_notifications.py`
+### Frontend
+Requires Expo Go on your phone
+```bash
+cd app/frontend
+npm install
+npx expo start
+```
+Scan the QR code with Expo Go to open the app.
